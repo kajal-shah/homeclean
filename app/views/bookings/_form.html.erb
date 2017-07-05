@@ -1,0 +1,25 @@
+<%= render partial: "layouts/errors", locals: { object: booking } %>
+<%= form_for @booking do |f| %>
+  <div class="field">
+    <p>
+      <%= f.label :Date %>
+       <%= f.text_field :booking_time, :placeholder => 'dd/mm/yyyy' %>
+    </p>
+  </div>
+
+  <p><%= f.label :city %> 
+  <%= f.collection_select :city_id, City.order(:city),:id,:city, include_blank: true %></p>
+  <p><%= f.label :cleaner_firstname %> 
+  <%= f.collection_select :cleaner_id, Cleaner.order(:first_name),:id,:first_name, include_blank: true %></p>
+  
+  <p><%= f.submit %></p>
+<% end %>
+
+
+ 
+  
+
+
+
+
+  

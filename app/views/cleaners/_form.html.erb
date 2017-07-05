@@ -1,0 +1,10 @@
+<%= render partial: 'layouts/errors', locals: { object: @cleaner } %>
+<%= form_for @cleaner do |f| %> 
+
+
+
+  <p><%= f.label :first_name %> <%= f.text_field :first_name %></p>
+  <p><%= f.label :last_name %> <%= f.text_field :last_name %></p>
+  <p><%= f.label :quality_score %> <%= f.text_field :quality_score %></p>
+  <p><%= f.submit %></p>
+<% end %>

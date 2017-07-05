@@ -1,0 +1,23 @@
+<h1>Cities <%= link_to "+ New", new_city_path %></h1>
+<% if !@cities.to_s.empty? %>
+
+<div class="row">
+  <div class="hidden-xs col-sm-3">
+    <h3>City</h3>
+  </div>
+</div>
+    
+<% @cities.each do |city| %>
+<div class="row">
+  <div class="hidden-xs col-sm-3">
+    <%= city.city %>
+    <p><%= link_to "Edit", edit_city_path(city), class: "btn btn-secondary" %> 
+    <%= link_to "Delete", city, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this city?" } %>   </p>
+  
+   </div>
+</div>
+<% end %>
+<% else %>
+<p>No cities.</p>
+<% end %>
+

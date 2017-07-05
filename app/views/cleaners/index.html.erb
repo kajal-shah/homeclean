@@ -1,0 +1,36 @@
+<h1>Cleaners <%= link_to "+ New", new_cleaner_path %></h1>
+<% if !@cleaners.to_s.empty? %>
+
+<div class="row">
+  <div class="hidden-xs col-sm-3">
+    <h3>FirstName</h3>
+  </div>
+  <div class="hidden-xs col-sm-3">
+    <h3>LastName</h3>
+  </div>
+   <div class="hidden-xs col-sm-3">
+    <h3>QualityScore</h3>
+  </div>
+</div>
+    
+<% @cleaners.each do |cleaner| %>
+<div class="row">
+  <div class="hidden-xs col-sm-3">
+    <%= cleaner.first_name %>
+    <p><%= link_to "Edit", edit_cleaner_path(cleaner), class: "btn btn-secondary" %> 
+    <%= link_to "Delete", cleaner, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this cleaner?" } %>   </p>
+  
+   </div>
+  <div class="hidden-xs col-sm-3">
+    <%= cleaner.last_name  %>
+  </div>
+  <div class="hidden-xs col-sm-3">
+    <%= cleaner.quality_score %>
+  </div>
+  
+</div>
+<% end %>
+<% else %>
+<p>No cleaners now.</p>
+<% end %>
+
