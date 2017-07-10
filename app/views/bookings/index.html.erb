@@ -4,6 +4,9 @@
   <div class="hidden-xs col-sm-3">
     <h3>Booking date</h3>
   </div>
+   <div class="hidden-xs col-sm-3">
+    <h3>Duration</h3>
+  </div>
   <div class="hidden-xs col-sm-3">
     <h3>cleaner name</h3>
   </div>
@@ -15,8 +18,11 @@
 <% @bookings.each do |booking| %>
 <div class="row">
   <div class="hidden-xs col-sm-3">
-    <p><%= booking.booking_time %></p>
+    <p><%= booking.booking_time.to_time.strftime('%B %e at %l:%M %p') %></p>
  </div>
+  <div class="hidden-xs col-sm-3">
+ <%= booking.duration %>
+</div>
 
   <div class="hidden-xs col-sm-3">
     <%= booking.cleaner.first_name %>
@@ -29,3 +35,4 @@
 </div>
   
 <% end %>
+

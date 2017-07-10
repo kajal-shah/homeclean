@@ -52,7 +52,8 @@ before_action :authenticate_customer!
  
   
   def booking_params
-    params.require(:booking).permit(:cleaner_id, :city_id, :booking_time)
+    params.require(:booking).permit(:cleaner_id, :city_id, :booking_time,{ booking_hour: ["booking_hour(4i)","booking_hour(5i)"]},:duration)
+    #params.permit(:data)
 end
 
 end

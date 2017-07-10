@@ -6,11 +6,19 @@ Rails.application.routes.draw do
   #get 'cities/index'
 
 
-  resources :cities 
+  # resources :cities 
   
-  resources :cleaners
+  # resources :cleaners
   
   resources :bookings
+
+
+  resources :cities do 
+    resources :bookings, only: [:index, :show, :new]
+  end
+  resources :cleaners do 
+    resources :bookings, only: [:index, :show, :new]
+end
 
   devise_for :customers
   # The priority is based upon order of creation: first created -> highest priority.

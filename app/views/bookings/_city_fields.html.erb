@@ -1,0 +1,17 @@
+<% if current_customer.cities.any? %>
+<div class="field">
+  <p>
+    <%= label_tag :city_id %>
+    <%= collection_select :booking, :city_id, current_customer.cities, :id, :city, {prompt: true } %>
+  </p>
+</div>
+<% end %>
+<!-- <p><%# if current_customer.cities.any? %>Or <%# end %>Create a New city</p>
+<div class="field">
+  <p>
+    <%#= fields_for :city, City.new do |c| %> 
+      <%#= c.label :city %>
+      <%#= c.text_field :city %>
+    <%# end %>
+  </p> -->
+<!-- </div> -->

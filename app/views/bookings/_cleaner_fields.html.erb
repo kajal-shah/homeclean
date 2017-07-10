@@ -1,0 +1,15 @@
+<% if current_customer.cleaners.any? %>
+<div class="field">
+  <p>
+    <%= label_tag :cleaner %>
+    <%= collection_select :booking, :cleaner_id, current_customer.cleaners, :id, :first_name, { prompt: true } %>
+  </p>
+</div>
+<% end %>
+<!-- <p><%# if current_customer.cleaners.any? %>Or <%# end %>Create a New Cleaner</p>
+<div class="field">
+  <%#= fields_for :cleaner, Cleaner.new do |ff| %> 
+    <%#= ff.label :cleaner_firstname %>
+    <%#= ff.text_field :first_name %>
+  <%# end %> -->
+<!-- </div> -->

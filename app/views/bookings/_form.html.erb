@@ -1,17 +1,36 @@
 <%= render partial: "layouts/errors", locals: { object: booking } %>
 <%= form_for @booking do |f| %>
+<%= render partial: "bookings/cleaner_fields", locals: { object: booking } %>
+  <!-- <div class="field">
+    <p>
+      <%#= f.label :Date %>
+       <%#= f.text_field :booking_time, :placeholder => 'dd/mm/yyyy',class: "datepicker",:ignore_time => true %>
+        <%#= date_select :booking_time, class: "datepicker" %>
+    </p>
+  </div> -->
+
+  <%#= f.label :hour  %>
+  <%#= f.time_select :booking_hour, :ignore_date => true %>
   <div class="field">
     <p>
-      <%= f.label :Date %>
-       <%= f.text_field :booking_time, :placeholder => 'dd/mm/yyyy' %>
-    </p>
+    <%= f.label :date %><br>
+    <%= f.datetime_select :booking_time %></p>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.select :duration ,(1..4).to_a %>
   </div>
 
-  <p><%= f.label :city %> 
-  <%= f.collection_select :city_id, City.order(:city),:id,:city, include_blank: true %></p>
-  <p><%= f.label :cleaner_firstname %> 
-  <%= f.collection_select :cleaner_id, Cleaner.order(:first_name),:id,:first_name, include_blank: true %></p>
+  <!-- <div class="field">
+    <p>
+      <%#= f.label :duration %> 
+      <%#= duration_hour_field("booking[duration][hour]", booking) %>
+      <%#= duration_minute_field("booking[duration][min]", booking) %>
+    </p>
+</div> -->
+
   
+  <%= render partial: "bookings/city_fields", locals: { object: booking } %>
   <p><%= f.submit %></p>
 <% end %>
 
